@@ -1,0 +1,33 @@
+{
+  "video": "/tmp/cached_20260813-200338",
+  "total_duration_sec": 479.21,
+  "rta_time_sec": 0.0,
+  "segments": [
+    {
+      "start_sec": 96.933,
+      "end_sec": 118.433,
+      "duration_sec": 21.5,
+      "confidence": 0.0
+    },
+    {
+      "start_sec": 177.866,
+      "end_sec": 195.633,
+      "duration_sec": 17.767,
+      "confidence": 0.0
+    },
+    {
+      "start_sec": 255.834,
+      "end_sec": 284.4,
+      "duration_sec": 28.566,
+      "confidence": 0.0
+    }
+  ],
+  "segment_count": 3,
+  "total_loading_sec": 67.833,
+  "adjusted_time_sec": null,
+  "verification_mode": "manual",
+  "backend": "nomacs",
+  "preview_dir": "/tmp/hybrid_verification_gjrgngsc",
+  "original_auto": "test/output/auto.json",
+  "correction_notes": ""
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Any percent",
+    "game": "Windblown",
+    "expected_loads": 3,
+    "average_load_duration_sec": 20.0,
+    "notes": "Loads to be removed: from biome 1 to biome 2, biome 2 to biome 3 and biome 3 to biome 4."
+}
