@@ -72,7 +72,7 @@ def main():
                         help="RTA submitted time")
 
     parser.add_argument("--purple-hue-min", type=float, default=250.0)
-    parser.add_argument("--purple-hue-max", type=float, default=300.0)
+    parser.add_argument("--purple-hue-max", type=float, default=275.0)
     parser.add_argument("--purple-dominance", type=float, default=0.60)
     parser.add_argument("--search-window", type=float, default=25.0)
     parser.add_argument("--frame-fps", type=float, default=30.0)

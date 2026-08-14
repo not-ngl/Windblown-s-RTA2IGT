@@ -1,5 +1,5 @@
 {
-  "video": "/tmp/cached_20260813-200338",
+  "video": "/tmp/cached_20260813-202108",
   "total_duration_sec": 479.21,
   "rta_time_sec": 0.0,
   "segments": [
@@ -27,7 +27,7 @@
   "adjusted_time_sec": null,
   "verification_mode": "manual",
   "backend": "nomacs",
-  "preview_dir": "/tmp/hybrid_verification_gjrgngsc",
+  "preview_dir": "/tmp/hybrid_verification_hmclm1ac",
   "original_auto": "test/output/auto.json",
   "correction_notes": ""
 }

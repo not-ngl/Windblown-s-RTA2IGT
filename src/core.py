@@ -296,7 +296,6 @@ def find_segment_boundary(
                         boundary = t_off - (-1) ** forward * step_sec
                         confidence = compute_visual_confidence(anchor_sec, boundary, not forward)
                         return boundary, confidence
-                t_off = temp_t
         else:
             t_off = temp_t
         cnt += 1

@@ -1,4 +1,7 @@
-yt-dlp==2026.8.10
+PySide6>=6.5.0
+Pillow>=9.0.0
+opencv-python>=4.8.0
+scipy>=1.10.0
+numpy>=1.24.3
+yt-dlp>=2023.0.0
 ffmpeg-python==0.2.1
-numpy==1.24.3
-
