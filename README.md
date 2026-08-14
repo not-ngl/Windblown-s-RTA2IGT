@@ -42,7 +42,7 @@ Install via `pip install -r requirements.txt`:
 | Platform | Status | Notes |
 |----------|--------|-------|
 | Linux | Fully tested | Recommended environment |
-| Windows |⚠️Should work | May require FFmpeg PATH configuration |
+| Windows | Should work | May require FFmpeg PATH configuration |
 | macOS | Untested | Community feedback needed |
 
 ## Installation
