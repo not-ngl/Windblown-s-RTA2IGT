@@ -30,6 +30,9 @@ def download_video(url: str, output_path: str, fmt: str = "18") -> str:
         "-f", fmt,
         "-o", output_path,
         "--no-playlist",
+        "--cookies-from-browser", "firefox",
+        "--js-runtimes", "deno:/usr/bin/deno",
+        "--remote-components", "ejs:npm",
         url
     ]
     print(f"[download] Running: {' '.join(cmd)}")
@@ -37,7 +40,7 @@ def download_video(url: str, output_path: str, fmt: str = "18") -> str:
     if result.returncode != 0:
         print(f"[download] stderr: {result.stderr}", file=sys.stderr)
         print("[download] Retrying without format specifier...", file=sys.stderr)
-        cmd_fallback = ["yt-dlp", "-o", output_path, "--no-playlist", url]
+        cmd_fallback = ["yt-dlp", "-o", output_path, "--no-playlist", url, "--cookies-from-browser", "firefox"]
         result = subprocess.run(cmd_fallback, capture_output=True, text=True)
         if result.returncode != 0:
             raise RuntimeError(f"yt-dlp failed: {result.stderr}")

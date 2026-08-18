@@ -1,5 +1,5 @@
-*/__pycache__
-*/*cpython314.pyc
+__pycache__/
+*.pyc
 output/*
 output
 test/*

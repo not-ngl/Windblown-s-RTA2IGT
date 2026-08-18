@@ -298,7 +298,7 @@ def find_segment_boundary(
                         return boundary, confidence
         else:
             t_off = temp_t
-        cnt += 1
+        cnt += step_sec
 
     return anchor_sec, 0.1
 
