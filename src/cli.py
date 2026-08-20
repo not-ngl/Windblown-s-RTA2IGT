@@ -25,13 +25,34 @@ from core import (
 
 def download_video(url: str, output_path: str, fmt: str = "18", browser: str = "firefox") -> str:
     """Download video via yt-dlp. Returns path to downloaded file."""
+
+    if sys.platform == "win32":
+        possible_paths = [
+                os.path.expanduser(r"~\.deno\bin\deno.exe"),
+                r"C:\Program Files\deno\deno.exe",
+                ]
+    else:
+        possible_paths = [
+                "/usr/bin/deno",
+                "/usr/local/bin/deno",
+                os.path.expanduser("~/.deno/bin/deno"),
+                ]
+
+    for path in possible_paths:
+        if os.path.exists(path):
+            deno_path = path
+            break
+
+    if deno_path is None:
+        raise FileNotFoundError("deno not found in PATH or common installation directories.")
+
     cmd = [
         "yt-dlp",
         "-f", fmt,
         "-o", output_path,
         "--no-playlist",
         "--cookies-from-browser", browser,
-        "--js-runtimes", "deno:/usr/bin/deno",
+        "--js-runtimes", f"deno:{deno_path}",
         "--remote-components", "ejs:npm",
         url
     ]

@@ -71,15 +71,14 @@ Download from `ffmpeg.org` the latest stable release of ffmpeg. Extract to `C:\f
 #### Step 3: Install Deno
 Visit https://deno.land/manual/getting_started/installation
 
-#### Step 4: Install yt-dlp
-Visit https://github.com/yt-dlp/yt-dlp#release-files
-
-#### Step 5: Install this project!
+#### Step 4: Install this project!
 ```bash
 git clone https://github.com/not-ngl/Windblown-s-RTA2LRT.git 
 cd Windblown-s-RTA2LRT
 pip install -r requirements.txt
 ```
+
+It is morelikely that you will need to include `C:\Users\[username]\AppData\Local\Python\pythoncore-X.Y-N\Scripts` to your PATH.
 
 And finally, run the GUI:
 ```bash
@@ -87,12 +86,13 @@ pytohn3 run_gui.py
 ```
 
 #### Troubleshooting
-Ensure `ffmpeg`, `deno`, and `yt-dlp` executables are in your system PATH. Verify with commands:
+Ensure `ffmpeg`, `deno`  executables are in your system PATH. Verify with commands:
 ```
 ffmpeg -version 
 deno --version 
-yt-dlp --version
 ```
+
+Ensure to be connected to a YouTube account.
 
 ## Usage
 
