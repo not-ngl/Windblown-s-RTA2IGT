@@ -13,6 +13,7 @@ import os
 import subprocess
 import json
 import datetime
+import cv2
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 from core import LoadingSegment, format_timestamp
@@ -27,7 +28,7 @@ class BoundaryWidget(QFrame):
         self.segment_idx = segment_idx
         self.boundary_type = boundary_type
         self.timestamp = initial_ts
-        self.fps = 30.0
+        self.fps = cv2.VideoCapture(video_path).get(cv2.CAP_PROP_FPS)
         
         self._setup_ui()
         self._load_frame()
