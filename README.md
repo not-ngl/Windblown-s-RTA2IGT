@@ -88,7 +88,7 @@ It is morelikely that you will need to include `C:\Users\[username]\AppData\Loca
 
 And finally, run the GUI:
 ```bash
-pytohn3 run_gui.py
+python3 run_gui.py
 ```
 
 #### Troubleshooting
