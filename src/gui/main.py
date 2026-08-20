@@ -6,6 +6,7 @@ import sys
 import os
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QStackedWidget, QMessageBox
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
 
 from .loader import VideoLoaderWidget
 from .anchors import AnchorInputWidget
@@ -15,6 +16,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         
         self.setWindowTitle("Windblown-s-RTA2LRT")
+        self.setWindowIcon(QIcon("icon.ico"))
         self.setMinimumSize(900, 700)
         
         stack = QStackedWidget()
