@@ -83,7 +83,7 @@ class VideoLoaderWidget(QWidget):
         # === WELCOME MESSAGE WITH USER MANUAL ===
         welcome_text = """
         <div style="text-align: center; margin-bottom: 20px;">
-                Welcome to Windblown-s-RTA2IGT, 
+                Welcome to Windblown-s-RTA2LRT, 
                 a community tool to help users and the <a href="https://www.speedrun.com/Windblown" style="color: #F2009D;">speedrun.com</a> 
                 moderation team detect loading times with minimal effort.
         </div>
@@ -99,7 +99,7 @@ class VideoLoaderWidget(QWidget):
             using <b>h/j</b> (previous) and <b>k/l</b> (next) keys. If no clear purple frame exists, select the earliest frame showing the loading screen.<br>
             <span style="color: #cc33ba;">5.</span> <b>Export!</b> The files in the output directory help moderation verify proper tool usage.<br><br>
             
-            <span style="color: #7e8791; font-size: 12px;"><i>Note: Windblown-s-RTA2IGT is an assist tool and cannot replace human verification.</i></span>
+            <span style="color: #7e8791; font-size: 12px;"><i>Note: Windblown-s-RTA2LRT is an assist tool and cannot replace human verification.</i></span>
         </div>
         """
         

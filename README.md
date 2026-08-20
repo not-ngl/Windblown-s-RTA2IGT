@@ -1,10 +1,10 @@
-# Windblown-s-RTA2IGT
+# Windblown-s-RTA2LRT
 
 A tool designed to help speedrun.com moderators identify and remove loading times from *Windblown* run submissions. 
 Combines automated detection with manual verification workflows for timing extraction.
 Can also be used by users.
 
-> **Note:** Windblown-s-RTA2IGT is an assist tool and cannot replace human verification.
+> **Note:** Windblown-s-RTA2LRT is an assist tool and cannot replace human verification.
 
 ## Features
 
@@ -50,8 +50,8 @@ Install via `pip install -r requirements.txt`:
 ### Clone the repository
 
 ```
-git clone https://github.com/yourusername/Windblown-s-RTA2IGT.git
-cd Windblown-s-RTA2IGT
+git clone https://github.com/yourusername/Windblown-s-RTA2LRT.git
+cd Windblown-s-RTA2LRT
 ```
 
 ### Verify FFmpeg
@@ -81,7 +81,7 @@ python src/gui/main.py
 4. **Locate precise frames** using h/j/k/l keys to find the first visible purple loading frame
 5. **Export** — output files help moderators verify the results
 
-> **Note:** Windblown-s-RTA2IGT is an assist tool and cannot replace human verification.
+> **Note:** Windblown-s-RTA2LRT is an assist tool and cannot replace human verification.
 
 ## License
 
@@ -90,6 +90,6 @@ This project is licensed under the **MIT License**, see the LICENSE file for ful
 ### Important Notes
 
 - **"Windblown"** is the property of Motion Twin and is not affiliated with this project.
-- **Windblown-s-RTA2IGT** is a community tool. It is not affiliated with or endorsed by the game studio.
+- **Windblown-s-RTA2LRT** is a community tool. It is not affiliated with or endorsed by the game studio.
 - **yt-dlp** should be used solely for downloading submitted runs for moderation purposes.
 - This tool is provided **as-is, without warranty**. It is an assist tool and cannot replace human verification during moderation.

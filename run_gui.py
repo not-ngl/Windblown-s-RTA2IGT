@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry point for the GUI version of Windblown-RTA2IGT."""
+"""Entry point for the GUI version of Windblown-RTA2LRT."""
 
 import sys
 import os

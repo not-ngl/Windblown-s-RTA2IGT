@@ -1,4 +1,4 @@
-"""GUI package for Windblown-RTA2IGT."""
+"""GUI package for Windblown-RTA2LRT."""
 
 from .main import MainWindow
 from .loader import VideoLoaderWidget

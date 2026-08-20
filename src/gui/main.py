@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        self.setWindowTitle("Windblown-s-RTA2IGT")
+        self.setWindowTitle("Windblown-s-RTA2LRT")
         self.setMinimumSize(900, 700)
         
         stack = QStackedWidget()
