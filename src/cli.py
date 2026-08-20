@@ -23,14 +23,14 @@ from core import (
     format_timestamp, parse_timestamp
 )
 
-def download_video(url: str, output_path: str, fmt: str = "18") -> str:
+def download_video(url: str, output_path: str, fmt: str = "18", browser: str = "firefox") -> str:
     """Download video via yt-dlp. Returns path to downloaded file."""
     cmd = [
         "yt-dlp",
         "-f", fmt,
         "-o", output_path,
         "--no-playlist",
-        "--cookies-from-browser", "firefox",
+        "--cookies-from-browser", browser,
         "--js-runtimes", "deno:/usr/bin/deno",
         "--remote-components", "ejs:npm",
         url
@@ -40,7 +40,7 @@ def download_video(url: str, output_path: str, fmt: str = "18") -> str:
     if result.returncode != 0:
         print(f"[download] stderr: {result.stderr}", file=sys.stderr)
         print("[download] Retrying without format specifier...", file=sys.stderr)
-        cmd_fallback = ["yt-dlp", "-o", output_path, "--no-playlist", url, "--cookies-from-browser", "firefox"]
+        cmd_fallback = ["yt-dlp", "-o", output_path, "--no-playlist", url, "--cookies-from-browser", browser]
         result = subprocess.run(cmd_fallback, capture_output=True, text=True)
         if result.returncode != 0:
             raise RuntimeError(f"yt-dlp failed: {result.stderr}")

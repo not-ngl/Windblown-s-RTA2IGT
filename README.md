@@ -1,8 +1,6 @@
 # Windblown-s-RTA2LRT
 
-A tool designed to help speedrun.com moderators identify and remove loading times from *Windblown* run submissions. 
-Combines automated detection with manual verification workflows for timing extraction.
-Can also be used by users.
+A tool designed to help speedrun.com moderators identify and remove loading times from *Windblown* run submissions. Combines automated detection with manual verification workflows for timing extraction. Can also be used by users.
 
 > **Note:** Windblown-s-RTA2LRT is an assist tool and cannot replace human verification.
 
@@ -13,18 +11,19 @@ Can also be used by users.
 - **Automatic Boundary Expansion** — Expands anchor points into start/end timestamps using color analysis
 - **Frame-Accurate Verification** — Keyboard navigation for sub-second precision (30fps video support)
 - **Multi-Segment Support** — Process multiple loading times in a single submission
-- **Cross-Platform** — Tested on Linux should work on Windows (macOS compatibility pending user reports)
+- **Cross-Platform** — Tested on Linux; Windows supported (macOS compatibility pending user reports)
 - **Standardized Export** — Generates output files that could be used for quick moderation verification
 - **YouTube Integration** — Download videos directly from URLs via yt-dlp
 
 ## System Requirements
 
-### Core Dependencies
+### Mandatory System Tools
 
-| Component | Version | Notes |
-|-----------|---------|-------|
-| Python | 3.10+ | Required for type hints and async support |
-| FFmpeg | Any recent build | Must be accessible in system PATH |
+| Tool | Purpose | Installation Method |
+|------|---------|---------------------|
+| **Python** | 3.10+ (type hints and async) | python.org / pyenv / distro package |
+| **FFmpeg** | Video/audio processing | See platform sections below |
+| **Deno** | JS runtime for yt-dlp ejs support | See platform sections below |
 
 ### Python Packages
 
@@ -35,51 +34,75 @@ Install via `pip install -r requirements.txt`:
 - `opencv-python` — Spectrogram rendering
 - `scipy` — Audio signal processing
 - `numpy` — Numerical computations
-- `yt-dlp` — Video download from URLs
+- `yt-dlp` — YouTube video downloader using URL and your cookies
 
-### Platform Status
-
-| Platform | Status | Notes |
-|----------|--------|-------|
-| Linux | Fully tested | Recommended environment |
-| Windows | Should work | May require FFmpeg PATH configuration |
-| macOS | Untested | Community feedback needed |
+---
 
 ## Installation
 
-### Clone the repository
+### Linux
 
-```
-git clone https://github.com/yourusername/Windblown-s-RTA2LRT.git
+```bash
+# Get the repo
+git clone https://github.com/not-ngl/Windblown-s-RTA2LRT.git
 cd Windblown-s-RTA2LRT
+
+# Setup a virtual environment
+python3 -m venv [A new virtual environment]
+source [A new virtual environment]/bin/activate
+pip3 install -r requirements
+
+# Ensure you have ffmpeg, deno and yt-dlp installed
+ffmpeg -version 
+deno --version 
+yt-dlp --version
+
+# Run the GUI
+python3 run_gui.py
 ```
 
-### Verify FFmpeg
-Ensure FFmpeg is installed and accessible:
-```
-ffmpeg -version
-ffprobe -version
-```
-If not found, install FFmpeg from ffmpeg.org and add to system PATH.
+### Windows
 
-### Install Python Dependencies
-```
+#### Step 1: Install Python
+Download from `python.org` using the PyInstaller. Ensure to check the box Add Python to PART during the installation process.
+
+#### Step 2: Install ffmpeg
+Download from `ffmpeg.org` the latest stable release of ffmpeg. Extract to `C:\ffmpeg`. Add `C:\ffmpeg\bin` to your PATH environment variable.
+
+#### Step 3: Install Deno
+Visit https://deno.land/manual/getting_started/installation
+
+#### Step 4: Install yt-dlp
+Visit https://github.com/yt-dlp/yt-dlp#release-files
+
+#### Step 5: Install this project!
+```bash
+git clone https://github.com/not-ngl/Windblown-s-RTA2LRT.git 
+cd Windblown-s-RTA2LRT
 pip install -r requirements.txt
 ```
 
-### Run
-The GUI starts with:
+And finally, run the GUI:
+```bash
+pytohn3 run_gui.py
 ```
-python src/gui/main.py
+
+#### Troubleshooting
+Ensure `ffmpeg`, `deno`, and `yt-dlp` executables are in your system PATH. Verify with commands:
+```
+ffmpeg -version 
+deno --version 
+yt-dlp --version
 ```
 
 ## Usage
 
-1. **Provide a video** and load it
-2. **Use the Spectrogram** to find loading regions (mark segments where in-game timer is active; they appear quiet/black)
-3. **Let the tool auto-detect** the approximate boundaries
-4. **Locate precise frames** using h/j/k/l keys to find the first visible purple loading frame
-5. **Export** — output files help moderators verify the results
+1. **Launch the GUI**: `python run_gui.py`
+2. **Provide a video** via local file or URL (ensure to select the browser you are using)
+3. **Use the Spectrogram** to find loading regions (mark segments where in-game timer is active; they appear quiet/black)
+4. **Let the tool auto-detect** the approximate boundaries
+5. **Locate precise frames** using h/j/k/l keys to find the first visible purple loading frame
+6. **Export** — output files help moderators verify the results
 
 > **Note:** Windblown-s-RTA2LRT is an assist tool and cannot replace human verification.
 

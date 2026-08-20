@@ -4,7 +4,8 @@ loader.py - Video loading and welcome screen widget
 
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
-    QLineEdit, QPushButton, QFileDialog, QGroupBox
+    QLineEdit, QPushButton, QFileDialog, QGroupBox,
+    QComboBox
 )
 from PySide6.QtCore import Qt, Signal, QObject, QThread
 from PySide6.QtGui import QPixmap
@@ -15,27 +16,6 @@ import tempfile
 # Import from core module
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 from core import get_video_duration
-
-class DownloadWorker(QObject):
-    """Background thread for downloading videos."""
-    finished = Signal(str)  # Emitted with video path
-    progress = Signal(str)  # Emitted with status messages
-    error = Signal(str)     # Emitted with error message
-
-    def __init__(self, url, output_dir):
-        super().__init__()
-        self.url = url
-        self.output_dir = output_dir
-
-    def run(self):
-        from cli import download_video
-        try:
-            timestring = __import__('time').strftime("%Y%m%d-%H%M%S")
-            output_path = os.path.join(self.output_dir, f"cached_{timestring}")
-            downloaded_path = download_video(self.url, output_path)
-            self.finished.emit(downloaded_path)
-        except Exception as e:
-            self.error.emit(str(e))
 
 class VideoLoaderWidget(QWidget):
     """Modular widget for video loading with welcome screen."""
@@ -140,6 +120,16 @@ class VideoLoaderWidget(QWidget):
         url_row.addWidget(self.url_edit, 1)
         url_row.addWidget(url_btn)
         input_layout.addLayout(url_row)
+
+        # Browser cookie selector
+        browser_row = QHBoxLayout()
+        browser_label = QLabel("Your web browser:")
+        self.browser_combo = QComboBox()
+        self.browser_combo.addItems(["firefox", "chrome", "chromium", "edge", "brave", "opera", "safari", "vivaldi", "whale"])
+        browser_row.addWidget(browser_label)
+        browser_row.addWidget(self.browser_combo)
+        browser_row.addStretch()
+        input_layout.addLayout(browser_row)
         
         # Load button
         self.load_btn = QPushButton("Load Video")
@@ -192,7 +182,7 @@ class VideoLoaderWidget(QWidget):
             self.load_btn.setText("Downloading...")
             
             output_path = os.path.join(tempfile.gettempdir(), f"cached_{__import__('time').strftime('%Y%m%d-%H%M%S')}")
-            self.video_path = download_video(source, output_path)
+            self.video_path = download_video(source, output_path, browser=self.browser_combo.currentText())
             
             self._fetch_metadata(self.video_path)
             self.video_loaded.emit(self.video_path)
