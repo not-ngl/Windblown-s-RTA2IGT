@@ -66,10 +66,16 @@ python3 run_gui.py
 Download from `python.org` using the PyInstaller. Ensure to check the box Add Python to PART during the installation process.
 
 #### Step 2: Install ffmpeg
-Download from `ffmpeg.org` the latest stable release of ffmpeg. Extract to `C:\ffmpeg`. Add `C:\ffmpeg\bin` to your PATH environment variable.
+Download from `ffmpeg.org` the latest stable release of ffmpeg. 
+Or directly on https://www.gyan.dev/ffmpeg/builds/ (`ffmpeg-git-full.7z`).
+Extract to `C:\ffmpeg`. Add `C:\ffmpeg\bin` to your PATH environment variable.
 
 #### Step 3: Install Deno
-Visit https://deno.land/manual/getting_started/installation
+Visit https://deno.land/manual/getting_started/installation.
+In a PowerShell
+```
+irm https://deno.land/install.ps1 | iex
+```
 
 #### Step 4: Install this project!
 ```bash
