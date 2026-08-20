@@ -52,10 +52,9 @@ python3 -m venv [A new virtual environment]
 source [A new virtual environment]/bin/activate
 pip3 install -r requirements
 
-# Ensure you have ffmpeg, deno and yt-dlp installed
+# Ensure you have ffmpeg, deno installed
 ffmpeg -version 
 deno --version 
-yt-dlp --version
 
 # Run the GUI
 python3 run_gui.py
